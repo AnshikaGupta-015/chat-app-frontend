@@ -83,8 +83,6 @@ function SignupPage() {
                       <Mail className="h-5 w-5 text-base-content/40" />
                     </div>
                     <input
-
-                    
                       type="email"
                       className={`input input-bordered w-full pl-10`}
                       placeholder="you@example.com"
