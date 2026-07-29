@@ -29,16 +29,17 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-       const isValid = validateForm();
-       if(!isValid) return;
-       const response = await axios.post("http://localhost:5000/api/auth/signup" , formData);
-       console.log(response);
-       toast.success("Account created successfully")
-    } catch (error) {
-      console.log(error);
-      toast.error("something went wrong");
-    }
+    // HUM ISE BHII BACKEND CALL KE SKTE HAI
+    // try {
+    //    const isValid = validateForm();
+    //    if(!isValid) return;
+    //    const response = await axios.post("http://localhost:5000/api/auth/signup" , formData);
+    //    console.log(response);
+    //    toast.success("Account created successfully")
+    // } catch (error) {
+    //   console.log(error);
+    //   toast.error("something went wrong");
+    // }
   };
 
   return (
