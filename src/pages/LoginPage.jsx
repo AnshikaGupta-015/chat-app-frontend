@@ -3,6 +3,8 @@ import { useState } from "react";
 import AuthImagePattern from "../components/AuthImagePattern";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
+import axios from 'axios';
+import toast from "react-hot-toast";
 // import { useAuthStore } from "../store/useAuthStore";
 
 const LoginPage = () => {
@@ -27,7 +29,16 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+       const isValid = validateForm();
+       if(!isValid) return;
+       const response = await axios.post("http://localhost:5000/api/auth/signup" , formData);
+       console.log(response);
+       toast.success("Account created successfully")
+    } catch (error) {
+      console.log(error);
+      toast.error("something went wrong");
+    }
   };
 
   return (
