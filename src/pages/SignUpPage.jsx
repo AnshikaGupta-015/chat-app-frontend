@@ -5,9 +5,10 @@ import AuthImagePattern from "../components/AuthImagePattern";
 
 import { Eye ,EyeOff ,Link,Loader2 , Lock, Mail, MessageSquare, User} from"lucide-react";
 import toast from "react-hot-toast";
+import { useAuthStore } from '../store/useAuthStore.js'
 
 function SignupPage() {
-
+  const {signup} = useAuthStore();
   const [formData , setFormData] = useState({
     fullName:"",
     email:"",
@@ -30,7 +31,11 @@ function SignupPage() {
    const handleSubmit = (e)=>{
     e.preventDefault();
 
-    console.log(formData);
+    const sucess = validateForm();
+
+    if(sucess){
+      signup(formData);
+    }
    }
 
   return (
