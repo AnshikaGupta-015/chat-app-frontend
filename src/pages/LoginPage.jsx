@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 import axios from 'axios';
 import toast from "react-hot-toast";
-// import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore.js";
 
 const LoginPage = () => {
-//  const {login} = useAuthStore();
+ const {login} = useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -29,6 +29,13 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const success = validateForm();
+
+    if(success){
+       login(formData);
+    }
+
     // HUM ISE BHII BACKEND CALL KE SKTE HAI
     // try {
     //    const isValid = validateForm();

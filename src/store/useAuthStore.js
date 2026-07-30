@@ -1,4 +1,4 @@
-import { creste } from "Zustand";
+import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 // import { io } from "socket.io-client";
@@ -36,7 +36,7 @@ export const useAuthStore = create((set, get) => ({
        toast.success("Account created successfully");
       //  get().connectionSocket();
     } catch (error) {
-       toast.error("error.response.data.message");
+       toast.error(error.response.data.message);
     } finally{
       set({ isSigningUp: false });
     }
@@ -47,7 +47,7 @@ export const useAuthStore = create((set, get) => ({
     try {
        const res = await axiosInstance.post("/auth/login", data);
        set({ authUser: res.data });
-       toasr.success("LOgged in successfully");
+       toast.success("Logged in successfully");
 
       //  get().connectSocket();
     } catch (error) {
