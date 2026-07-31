@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from "Zustand";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 // import { io } from "socket.io-client";
