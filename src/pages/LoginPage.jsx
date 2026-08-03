@@ -35,9 +35,6 @@ const LoginPage = () => {
     if(success){
        login(formData);
     }
-
-
-
     // HUM ISE BHII BACKEND CALL KE SKTE HAI
     // try {
     //    const isValid = validateForm();
