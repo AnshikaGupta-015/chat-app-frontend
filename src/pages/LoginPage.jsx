@@ -24,9 +24,8 @@ const LoginPage = () => {
 
     return true;
   };
-
-
-   const handleSubmit = async (e) => {
+  
+    const handleSubmit = async (e) => {
     e.preventDefault();
 
     const success = validateForm();
