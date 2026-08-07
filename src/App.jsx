@@ -8,6 +8,7 @@ import ProfilePage from './pages/ProfilePage';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from 'lucide-react';
 import { useAuthStore } from './store/useAuthStore.js';
+import Navbar from './components/Navbar.jsx';
 
 const App = () => {
   const {authUser , checkAuth , isCheckingAuth  } = useAuthStore();
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
         <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
